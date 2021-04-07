@@ -2,9 +2,18 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title BuEventBoard
+    %title BU Event Board
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    = yield
+    %div{:class => "container"}
+      %h1
+        =link_to "BU Event Board", root_path
+      = yield
+    %footer{:class => "footer mt-auto py-3 bg-light"}
+      %div{:class => "container"}
+        %p{:class => "footer-text"}
+          =link_to "Home", root_path
+          |
+          =link_to "About", about_path
