@@ -65,3 +65,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'omniauth-rails_csrf_protection'  # protects against recently discovered vulnerability
+gem 'omniauth'                        # flexible, multi-provider authentication library
+gem 'omniauth-github'                 # omniauth strategy for provider github
+gem 'figaro'                          # keeps our secrets safe
