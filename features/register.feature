@@ -8,11 +8,12 @@ Feature: Register
 Scenario: Register
   Given I am on the home page
   And I press "Sign up"
-  Then I am on the Profile page
-  And I should see message "Welcome Tester Suny! You have signed up via GitHub."
+  Then I am on the Authorize page
+  And I should see "Welcome Tester Suny! You have signed up via GitHub."
 
 @omniauth_test2
 Scenario:  Can't Register without SUNY ID
   Given I am on the home page
   And I press "Sign up"
-  Then I should see message "Only Students and Staff belonging to SUNY Binghamton can register for this app"
+  Then I should see "Only Students and Staff belonging to SUNY Binghamton can register for this app"
+
