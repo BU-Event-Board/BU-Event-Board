@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :profiles
+  resources :profiles
   root 'home_page#index'
     
   get 'about' => 'home_page#about'
@@ -7,9 +9,13 @@ Rails.application.routes.draw do
   match 'auth/failure', :to => 'sessions#failure', :via => [:get, :post]
   get 'sessions/destroy', :as => 'logout'
   get 'sessions/clear'
-  get 'session/debug'
-
+  get 'session/debug', :to => 'sessions#debug', :via => [:get, :post]
+  get 'session/new', :to => 'sessions#new', :via => [:get, :post]
+  match 'session/create', :to => 'sessions#create', :via => [:get, :post]
   
+  resources :users, only: [:destroy] do
+    resources :profiles, only: [:show, :edit, :update, :destroy]
+  end    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

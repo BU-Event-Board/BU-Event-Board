@@ -19,7 +19,8 @@ module NavigationHelpers
     when /^the Authorize\s?page$/
       "/auth/github/callback"
     
-        
+    when /^the RottenPotatoes edit Profile Path for "([^"]*)"$/
+      edit_user_profile_path(1, 2)   
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
