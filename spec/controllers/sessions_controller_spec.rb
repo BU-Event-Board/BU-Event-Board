@@ -7,13 +7,7 @@ require 'rails_helper'
 RSpec.describe SessionsController, type: :controller do
 
  
-    
-  describe "GET #clear" do
-    it "returns http success" do
-      get :clear
-      expect(response).to have_http_status(:success)
-    end
-  end
+
 
   describe "GET #debug" do
     it "returns http success" do
@@ -22,19 +16,7 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "returns http success" do
-      get :new
-      expect(response).to have_http_status(:success)
-    end
-  end
 
-#  describe "GET #create" do
- #   it "returns http success" do
-  #    get :create
-   #   expect(response).to have_http_status(:success)
-   # end
- # end
 
   describe "GET #failure" do
     it "returns http success" do
@@ -56,16 +38,16 @@ RSpec.describe SessionsController, type: :controller do
     context "no active session, User and Authorization do not exist" do
       context 'register with github' do 
           before(:each) do
-          session[:user_id] = nil
+            session[:user_id] = nil
           end
           # Database has been cleaned, so shouldn't have to worry about User and Authorization
      
         describe 'When signing up for first time' do
-              let(:auth) {double('Authorization', provider: "github", uid: "123456", user_id: id1, user: double('User', name: 'SUNY Tester', email: 'stester@binghamton.edu', id: id1))}
+          let(:auth) {double('Authorization', provider: "github", uid: "123456", user_id: id1, user: double('User', name: 'SUNY Tester', email: 'stester@binghamton.edu', id: id1))}
         #  end
           it "creates a User" do 
- 
-              expect { post :create, provider: :github }.to change(User, :count).by(1)
+            p OmniAuth.config.mock_auth[:github][:info]
+            expect { post :create, provider: :github }.to change(User, :count).by(1)
                        
 
           end        

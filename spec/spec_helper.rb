@@ -14,6 +14,17 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'factory_girl_rails'
+require 'omniauth'
+
+OmniAuth.config.test_mode = true
+omniauth_hash = { 'provider' => 'github',
+                  'uid' => "123456",
+                  'info' => {
+                      'name' => "SUNY Tester",
+                      'email' =>"stester@binghamton.edu"
+                  }
+}
+
 RSpec.configure do |config|
   config.before(:each) do
     Rails.application.load_seed # loading seeds
@@ -49,16 +60,9 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-require 'omniauth'
 
-OmniAuth.config.test_mode = true
-omniauth_hash = { 'provider' => 'github',
-                  'uid' => "123456",
-                  'info' => {
-                      'name' => "SUNY Tester",
-                      'email' =>"stester@binghamton.edu"
-                  }
-}
+
+
 
 OmniAuth.config.add_mock(:github, omniauth_hash)
 # The settings below are suggested to provide a good initial experience

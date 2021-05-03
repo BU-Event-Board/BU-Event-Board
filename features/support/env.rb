@@ -68,7 +68,7 @@ Before('@omniauth_test1') do
   OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
     :provider => 'github',
     :uid => '123456',
-    :info => {:name => 'Tester SUNY', :email => 'tester@binghamton.edu' } })
+    :info => {:name => 'Tester SUNY', :email => 'stester@binghamton.edu' } })
     
   Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:github]  
 end
