@@ -47,6 +47,7 @@ RSpec.describe SessionsController, type: :controller do
         #  end
           it "creates a User" do 
             p OmniAuth.config.mock_auth[:github][:info]
+            post :create, provider: :github
             expect { post :create, provider: :github }.to change(User, :count).by(1)
                        
 

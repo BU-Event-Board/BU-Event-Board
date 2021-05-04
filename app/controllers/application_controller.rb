@@ -12,10 +12,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id])
   end
 
-# mutator:  gets set in sessions controller
-def current_user=(user)
-  p user  
-  puts "current_user"
-  @current_user = user
-end
+  # mutator:  gets set in sessions controller
+  def current_user=(user)
+    p user  
+    puts "current_user"
+    @current_user = user
+  end
 end

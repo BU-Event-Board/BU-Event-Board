@@ -16,8 +16,6 @@ Background: profiles in databasea
 Scenario: Register
   Given I am on the home page
   And I press "Sign up"
-  #Then I am on the Authorize page
-  #And I should see message "Welcome Tester Suny! You have signed up via GitHub."
   Then I will see "Welcome Tester SUNY! You have signed up via github." 
   #Then I am on the RottenPotatoes edit Profile page for 'Tester SUNY'
   And I will see "Editing profile" 

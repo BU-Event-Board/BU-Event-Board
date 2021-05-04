@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
     
   def staff_or_student
     errors.add(:email, "must be for Binghamton University") if
-      email.split('@')[1] != "binghamton.edu"
-    end  
+      email.split('@')[1] != "binghamton.edu"  
   end
 
   def self.create_with_omniauth info
@@ -20,6 +19,6 @@ class User < ActiveRecord::Base
   def create_profile
     Profile.create(user_id: self.id)
   end
-
+end
 
   
