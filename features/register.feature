@@ -25,5 +25,5 @@ Scenario:  Can't Register without SUNY ID
   Given I am on the home page
   And I press "Sign up"
   Then I will see "ActiveRecord::RecordInvalid: Validation failed: Email must be for Binghamton University"
-  And I am on the RottenPotatoes Landing Page
+  And I am on the home page
 
