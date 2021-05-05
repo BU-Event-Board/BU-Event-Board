@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210430064416) do
+ActiveRecord::Schema.define(version: 20210505170720) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 20210430064416) do
   end
 
   add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id"
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "primary_language"

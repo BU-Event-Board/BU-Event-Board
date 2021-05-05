@@ -15,8 +15,8 @@ module NavigationHelpers
         
     when /^the landing page$/
       landing_page_index_path      
-#    when /^the home page$/
-#      home_page_index_path
+    when /^the home page$/
+      events
     
 =begin
       Given I am on the home page
