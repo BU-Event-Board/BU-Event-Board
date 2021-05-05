@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
     create!(name: info['name'], email: info['email'])
   end
   
+    def self.find_with_auth_hash info
+        User.find_by(name: info['name'], email: info['email'])
+    end
 
   # Note that self is the **user**
   def create_profile

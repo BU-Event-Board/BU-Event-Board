@@ -107,11 +107,11 @@ RSpec.describe SessionsController, type: :controller do
           let(:auth1) {@auth}
           let(:user1) {@user}
           it "checks to see if a previous authorization exists" do
-                          expect(Authorization).to receive(:exists?).with(OmniAuth.config.mock_auth[:github] ).and_return(true)
+              expect(Authorization).to receive(:exists?).with(OmniAuth.config.mock_auth[:github] ).and_return(true)
               post :create, provider: :github
           end
           it 'recovers the previous authorization' do
-              
+              expect(user1).to have_attributes(name: 'SUNY Tester', email: 'stester@binghamton.edu', id: user1.id)
               post :create, provider: :github
           end
           it 'recovers the previous user' do
