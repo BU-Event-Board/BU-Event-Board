@@ -6,6 +6,6 @@ end
 
 
 Then /^I will see "([^"]*)"$/ do |message|
-  puts page.body
+  #puts page.body
   expect(page.body).to have_content(message)
 end
