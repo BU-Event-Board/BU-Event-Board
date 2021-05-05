@@ -21,7 +21,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-
+gem 'bootstrap-sass'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -53,6 +53,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails', '3.7.2'
   gem 'ZenTest', '4.11.2'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -65,3 +66,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'omniauth-rails_csrf_protection'  # protects against recently discovered vulnerability
+gem 'omniauth'                        # flexible, multi-provider authentication library
+gem 'omniauth-github'                 # omniauth strategy for provider github
+gem 'figaro'                          # keeps our secrets safe
