@@ -13,3 +13,11 @@ Given /the following users exist/ do |users_table|
     p User.all
   end
 end
+
+Given /I am logged into/ do
+  steps %Q{
+    Given I am on the landing page
+    And I press "Sign up"
+    And I am on the home page
+    }
+end

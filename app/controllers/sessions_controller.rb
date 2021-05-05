@@ -64,6 +64,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+      message = "#{self.current_user.name} has logged out."
+    self.current_user = nil
+    session.delete(:user_id)
+    flash[:notice] = message
+    redirect_to landing_page_index_path
   end
 
   private 
