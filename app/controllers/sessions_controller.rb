@@ -29,19 +29,35 @@ class SessionsController < ApplicationController
   def create
     #debug 
     #user = User.create!("name" => auth_hash[:info][:name], "email" => auth_hash[:info][:email])
-    begin 
-      #p auth_hash
-      #byebug
-      @user = User.create_with_omniauth(auth_hash['info'])
-      #p @user
-      auth = Authorization.create_with_omniauth(auth_hash, @user)
-      #p auth
-      self.current_user= auth.user
-      @profile = @user.create_profile
-      session[:user_id] = auth.user.id
-      message = "Welcome #{@user.name}! You have signed up via #{auth.provider}."
-      flash[:notice] = message
-      redirect_to edit_user_profile_path(@user,@profile)  
+    begin
+      if Authorization.exists?(auth_hash)
+          #p auth_hash
+          #byebug
+          @user = User.create_with_omniauth(auth_hash['info'])
+          #p @user
+          auth = Authorization.find_with_auth_hash(auth_hash)
+          #p auth
+          self.current_user= auth.user
+          @profile = @user.create_profile
+          session[:user_id] = auth.user.id
+          message = "Welcome #{@user.name}! You have signed up via #{auth.provider}."
+          flash[:notice] = message
+          redirect_to edit_user_profile_path(@user,@profile)  
+      else
+          #p auth_hash
+          #byebug
+          @user = User.create_with_omniauth(auth_hash['info'])
+          #p @user
+          auth = Authorization.create_with_omniauth(auth_hash, @user)
+          #p auth
+          self.current_user= auth.user
+          @profile = @user.create_profile
+          session[:user_id] = auth.user.id
+          message = "Welcome #{@user.name}! You have signed up via #{auth.provider}."
+          flash[:notice] = message
+          redirect_to edit_user_profile_path(@user,@profile)  
+      end
+
     rescue ActiveRecord::RecordInvalid,  Exception => exception
       flash[:warning] = "#{exception.class}: #{exception.message}"
       redirect_to landing_page_index_path
