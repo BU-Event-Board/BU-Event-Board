@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validate :staff_or_student
     
   def staff_or_student
+    p email
     errors.add(:email, "must be for Binghamton University") if
       email.split('@')[1] != "binghamton.edu"  
   end
