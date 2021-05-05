@@ -14,7 +14,7 @@ Background: profiles in databasea
   |  English         | Music            | Blade Runner |Ishtar     |SciFi         |       |    
 @omniauth_test1
 Scenario: Register
-  Given I am on the home page
+  Given I am on the landing page
   And I press "Sign up"
   Then I will see "Welcome Tester SUNY! You have signed up via github." 
   #Then I am on the RottenPotatoes edit Profile page for 'Tester SUNY'
@@ -22,8 +22,8 @@ Scenario: Register
 
 @omniauth_test2
 Scenario:  Can't Register without SUNY ID
-  Given I am on the home page
+  Given I am on the landing page
   And I press "Sign up"
   Then I will see "ActiveRecord::RecordInvalid: Validation failed: Email must be for Binghamton University"
-  And I am on the home page
+  And I am on the landing page
 
