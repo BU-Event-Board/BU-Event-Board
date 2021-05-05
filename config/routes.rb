@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     resources :profiles, only: [:show, :edit, :update, :destroy]
   end    
 
-  get 'about' => 'home_page#about'
-  get 'home_page/index'
-  root 'home_page#index'
+  get 'about' => 'landing_page#about'
+  get 'landing_page/index'
+  root 'landing_page#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

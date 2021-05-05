@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
     
   def clear
     session.clear
-    redirect_to home_page_index_path
+    redirect_to landing_page_index_path
     #redirect_to #"/auth/github" #welcome_to_landing_path
   end
 
@@ -44,7 +44,7 @@ class SessionsController < ApplicationController
       redirect_to edit_user_profile_path(@user,@profile)  
     rescue ActiveRecord::RecordInvalid,  Exception => exception
       flash[:warning] = "#{exception.class}: #{exception.message}"
-      redirect_to home_page_index_path
+      redirect_to landing_page_index_path
     end
   end
 

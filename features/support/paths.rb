@@ -12,9 +12,11 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-
-    when /^the home page$/
-      home_page_index_path
+        
+    when /^the landing page$/
+      landing_page_index_path      
+#    when /^the home page$/
+#      home_page_index_path
     
 =begin
       Given I am on the home page
