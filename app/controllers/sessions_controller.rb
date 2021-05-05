@@ -30,12 +30,12 @@ class SessionsController < ApplicationController
     #debug 
     #user = User.create!("name" => auth_hash[:info][:name], "email" => auth_hash[:info][:email])
     begin 
-      p auth_hash
+      #p auth_hash
       #byebug
       @user = User.create_with_omniauth(auth_hash['info'])
-      p @user
+      #p @user
       auth = Authorization.create_with_omniauth(auth_hash, @user)
-      p auth
+      #p auth
       self.current_user= auth.user
       @profile = @user.create_profile
       session[:user_id] = auth.user.id
