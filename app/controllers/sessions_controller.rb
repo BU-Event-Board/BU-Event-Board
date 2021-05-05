@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :keep_out_unless_logged_in, only: [:create, :clear, :debug]  
     
   def clear
     session.clear
@@ -23,6 +24,8 @@ class SessionsController < ApplicationController
           redirect_to failure
        end
     end
+      
+    redirect_to landing_page_index_path
   end
   
     

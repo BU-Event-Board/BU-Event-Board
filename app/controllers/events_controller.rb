@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  skip_before_action :keep_out_unless_logged_in
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
