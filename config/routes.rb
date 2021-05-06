@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
-  root 'home_page#index'
+
+  resources :events
+  match '/auth/:provider/callback', :to => 'sessions#create', :via => [:get, :post]
+  match 'auth/failure', :to => 'sessions#failure', :via => [:get, :post]
+  match 'sessions/destroy', :as => 'logout', :via => [:get, :post]
+  get 'sessions/clear'
+  get 'sessions/debug', :to => 'sessions#debug', :via => [:get, :post]
     
-  get 'about' => 'home_page#about'
-  
+  resources :users, only: [:destroy] do
+    resources :profiles, only: [:show, :edit, :update, :destroy]
+  end    
+
+  get 'about' => 'landing_page#about'
+  get 'landing_page/index'
+  root 'landing_page#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -57,4 +68,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end

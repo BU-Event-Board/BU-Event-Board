@@ -12,10 +12,25 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-
-    when /^the home\s?page$/
-      '/'
+        
+    when /^the landing page$/
+      landing_page_index_path      
+    when /^the home page$/
+      events_path
     
+=begin
+      Given I am on the home page
+  And I press "Sign up"
+  #Then I am on the Authorize page
+  #And I should see message "Welcome Tester Suny! You have signed up via GitHub."
+  Then I will see "Welcome Tester SUNY! You have signed up via github." 
+  Then I am on the edit Profile user page for 'Tester SUNY'
+  And I will see "Editing profile" 
+=end
+        
+    when /^the edit Profile user page for "([^"]*)"$/
+      user = find_by(name: $1)
+      edit_user_profile_path(user, Profile.find_by(user_id: user.id))
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
