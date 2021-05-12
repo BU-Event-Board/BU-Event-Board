@@ -4,8 +4,8 @@ require 'twitter'
 
 
 client = Twitter::REST::Client.new do |config|
-  config.consumer_key        = "n7qNHkDgg1HJ3CDRhrUVY2FTk"
-  config.consumer_secret     = "HxKIodzdvMbtyBeqDvXrqkxPOZLBUDhfAEj8ZmaI8nQAsFc9hc"
+  config.consumer_key        = ENV["TWITTER_CLIENT_ID"] 
+  config.consumer_secret     = ENV["TWITTER_CLIENT_SECRET"]
 end
 
 Tweets = client.user_timeline('binghamtonu', count: 3200)
