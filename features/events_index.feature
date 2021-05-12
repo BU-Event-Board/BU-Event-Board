@@ -25,3 +25,7 @@ Background: events have been added to the database
 Scenario: I can see the events index
     Given I am on the home page
     Then I should see "Listing events"
+    
+Scenario: I can see the correct number of events cards
+    Given I am on the home page
+    Then I should see the correct number of events cards
