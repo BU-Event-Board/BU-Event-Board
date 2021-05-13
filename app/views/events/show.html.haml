@@ -1,6 +1,13 @@
-%p#notice= notice
+%h1 Event Details
 
-
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Back', events_path
+%div{class: "card", style: "max-width: 72rem;"}
+  %div{class: "card-body"}
+    %h3{class: "card-title"}
+      = event.title
+    %h5{class: "card-subtitle"}
+      = event.date
+    %p{class: "card-text"}
+      = event.description
+      
+      
+=button_to "Back To Events", event_path, class: "btn btn-primary"
