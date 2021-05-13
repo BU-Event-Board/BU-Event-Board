@@ -11,3 +11,8 @@ profiles = [{:primary_language => 'English', :secondary_language => 'I', :favori
 profiles.each do |profile|
   Profile.create!(profile)
 end
+
+events = (1..10).to_a.map{|s| s.to_s << ' Event'}
+events.each do |event|
+    Event.create!(description: event)
+end

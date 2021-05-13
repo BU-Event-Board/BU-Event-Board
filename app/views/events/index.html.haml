@@ -7,12 +7,23 @@
       %th
       %th
 
-  %tbody
-    - @events.each do |event|
-      %tr
-        %td= link_to 'Show', event
-        %td= link_to 'Edit', edit_event_path(event)
-        %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+  
+  - @events.each_slice(4).to_a.each do |events_split|
+    %div{class: "card-group"}
+      - events_split.each do |event|
+        %div{class: "card", style: "max-width: 18rem;"}
+          %div{class: "card-body"}
+            %h5{class: "card-title"}
+              = event.description
+            %h6{class: "card-subtitle mb-2 text-muted"}
+              Today
+            %a{href: event_path(event.id), class: "card-link"}
+              View event
+    %br
+    //      %tr
+    //       %td= link_to 'Show', event
+    //        %td= link_to 'Edit', edit_event_path(event)
+    //        %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
