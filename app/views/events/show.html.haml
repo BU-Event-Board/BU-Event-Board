@@ -1,13 +1,15 @@
 %h1 Event Details
 
-%div{class: "card", style: "max-width: 72rem;"}
+%div{class: "card", style: "max-width: 100rem;"}
   %div{class: "card-body"}
     %h3{class: "card-title"}
-      = event.title
+      //= event.title
+      = "Temp Title"
     %h5{class: "card-subtitle"}
-      = event.date
+      //= event.date
+      = "0/0/0000"
     %p{class: "card-text"}
-      = event.description
+      //= event.description
+      = "Temp Description"
       
-      
-=button_to "Back To Events", event_path, class: "btn btn-primary"
+=link_to "Back To Events", events_path
