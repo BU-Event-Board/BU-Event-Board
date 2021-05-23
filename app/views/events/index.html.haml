@@ -1,5 +1,7 @@
 %h1 Listing events
-
+%p1
+  //= link_to "Sort Date", events_path(:sort => :date)
+  = link_to "Sort Desc", events_path(:sort => :description)
 %table
   %thead
     %tr

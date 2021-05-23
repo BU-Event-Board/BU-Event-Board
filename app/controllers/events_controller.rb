@@ -4,7 +4,10 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all
+    update_events_hash
+    render_or_redirect
+    @sort_key = sort_key
+    @events = Event.sort_events(@sort_key)
   end
 
   # GET /events/1
@@ -56,5 +59,17 @@ class EventsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def event_params
       params[:event]
+    end
+    
+    def sort_key
+      session[:sort]
+    end
+    def update_events_hash
+      session[:sort] = params[:sort] || session[:sort] || :id
+    end
+    
+    def render_or_redirect
+      return unless (session[:sort] and params[:sort].nil?)
+      redirect_to events_path(:sort => session[:sort])
     end
 end
