@@ -80,7 +80,8 @@ class EventsController < ApplicationController
     end
     
     def render_or_redirect
-      return unless (session[:sort] and params[:sort].nil? or session[:query] and params[:query].nil?)
+      return unless (session[:sort] and params[:sort].nil?)
+      return unless (session[:query] and params[:query].nil?)
       redirect_to events_path(:sort => session[:sort], :query => session[:query])
     end
 end
