@@ -1,6 +1,15 @@
-%p#notice= notice
+%h1 Event Details
 
-
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Back', events_path
+%div{class: "card", style: "max-width: 100rem;"}
+  %div{class: "card-body"}
+    %h3{class: "card-title"}
+      //= event.title
+      = "Temp Title"
+    %h5{class: "card-subtitle"}
+      //= event.date
+      = "0/0/0000"
+    %p{class: "card-text"}
+      //= event.description
+      = "Temp Description"
+      
+=link_to "Back To Events", events_path
