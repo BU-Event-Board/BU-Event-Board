@@ -15,8 +15,9 @@
           %div{class: "card-body"}
             %h5{class: "card-title"}
               = event.description
+              
             %h6{class: "card-subtitle mb-2 text-muted"}
-              Today
+              = event.date
             %a{href: event_path(event.id), class: "card-link"}
               View event
     %br
@@ -27,4 +28,4 @@
 
 %br
 
-= link_to 'New Event', new_event_path
+= button_to 'New Event', @events.create, class: "btn btn-primary"
