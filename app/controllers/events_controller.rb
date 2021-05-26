@@ -7,7 +7,12 @@ class EventsController < ApplicationController
     update_events_hash
     render_or_redirect
     @sort_key = sort_key
-    @events = Event.sort_events(@sort_key)
+    @query_key = query_key
+    if @query_key
+      @events = Event.search_description(@query_key)
+    elsif @sort_key
+      @events = Event.sort_events(@sort_key)
+    end
   end
 
   # GET /events/1
@@ -64,12 +69,19 @@ class EventsController < ApplicationController
     def sort_key
       session[:sort]
     end
+    
+    def query_key
+      session[:query]
+    end
+    
     def update_events_hash
       session[:sort] = params[:sort] || session[:sort] || :id
+      session[:query] = params[:query] || session[:query] || :id
     end
     
     def render_or_redirect
       return unless (session[:sort] and params[:sort].nil?)
-      redirect_to events_path(:sort => session[:sort])
+      return unless (session[:query] and params[:query].nil?)
+      redirect_to events_path(:sort => session[:sort], :query => session[:query])
     end
 end

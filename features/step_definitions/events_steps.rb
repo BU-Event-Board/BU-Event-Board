@@ -13,3 +13,9 @@ Then /I should see the correct number of events cards/ do
     num_events_cards = all(:css, ".card").size
     expect(num_events_cards).to eq num_events
 end
+
+Then /I should see the correct number of events with a search: (.*)/ do | query |
+    num_events = Event.search_description(query).size
+    num_events_cards = all(:css, ".card").size
+    expect(num_events_cards).to eq num_events
+end
