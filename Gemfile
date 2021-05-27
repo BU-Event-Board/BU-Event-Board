@@ -26,7 +26,6 @@ gem 'twitter'
 
 gem 'bootstrap', '~> 5.0.0'
 gem 'sprockets-rails', '~> 3.2.2'
-gem 'twitter'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

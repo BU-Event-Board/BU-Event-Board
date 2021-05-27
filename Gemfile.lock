@@ -207,6 +207,8 @@ GEM
       omniauth (~> 2.0)
     pg (1.2.3)
     popper_js (2.9.2)
+    postgresql (1.0.0)
+      pg
     public_suffix (4.0.6)
     racc (1.5.2)
     rack (1.6.13)
@@ -359,6 +361,7 @@ DEPENDENCIES
   omniauth-github
   omniauth-rails_csrf_protection
   pg
+  postgresql
   rails (= 4.2.11.3)
   rails_12factor
   rspec-rails (= 3.7.2)
