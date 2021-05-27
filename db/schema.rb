@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20210524220636) do
   add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id"
 
   create_table "events", force: :cascade do |t|
-    t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "description"
     t.datetime "date"
   end
 
