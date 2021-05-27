@@ -2,9 +2,14 @@
 
 An aggregator that provides simple and easy discovery of local events happening in the Binghamton community.
 
+=== Project
+
+After tirelessly fiddling with Rails controllers, models, and other fancy gems, we are pleased to present the BU-Event-Board app! Our application is a one-stop portal to the most entertaining events happening in Binghamton right now. After registering with your GitHub account, you will have access to a state of the art display of upcoming events. Curious about events far off in the future? Sort them! Interested in specific events? Search them! Overall, we are very pleased to give you--our users--the chance to use our application.
+
 === Features
 
-- Registration and login for Binghamton University students
+- Registration and log-in for Binghamton University students
+  - GitHub single sign-on
 - "Card" style display of future events
   - Sorting events
   - Searching events
