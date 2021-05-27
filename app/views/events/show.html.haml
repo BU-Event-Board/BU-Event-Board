@@ -2,14 +2,11 @@
 
 %div{class: "card", style: "max-width: 100rem;"}
   %div{class: "card-body"}
-    %h3{class: "card-title"}
-      //= event.title
-      = "Temp Title"
-    %h5{class: "card-subtitle"}
-      //= event.date
-      = "0/0/0000"
+    //%h3{class: "card-title"}
+    //  = event.title
+    //%h5{class: "card-subtitle"}
+    //  = event.date
     %p{class: "card-text"}
-      //= event.description
-      = "Temp Description"
+      = @event.description
       
 =link_to "Back To Events", events_path

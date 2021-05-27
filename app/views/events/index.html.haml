@@ -1,5 +1,11 @@
 %h1 Listing events
-
+%p1
+  //= link_to "Sort Date", events_path(:sort => :date)
+  = link_to "Sort Desc", events_path(:sort => :description)
+  %form{ :action => events_path, :method => "get" }
+    %input{:placeholder => @query_key, :required => "", :type => "text", :name => "query"}
+      %button{:type => "submit"} Search
+  = link_to "Clear", events_path(:sort => "", :query => "")
 %table
   %thead
     %tr
@@ -15,8 +21,9 @@
           %div{class: "card-body"}
             %h5{class: "card-title"}
               = event.description
+              
             %h6{class: "card-subtitle mb-2 text-muted"}
-              Today
+              = event.date
             %a{href: event_path(event.id), class: "card-link"}
               View event
     %br
@@ -27,4 +34,4 @@
 
 %br
 
-= link_to 'New Event', new_event_path
+//= button_to 'New Event', @events.create, class: "btn btn-primary"
