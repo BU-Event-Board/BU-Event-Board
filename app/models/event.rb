@@ -1,10 +1,9 @@
-class Event < ActiveRecord::Base
-    def self.sort_events(sort_key)
-        Event.order(sort_key)
-    end
-    
-    def self.search_description(query)
-        Event.where("description LIKE ?", "%#{query}%")
+class Event < ActiveRecord::Base    
+    def self.search_description(query, sort_key)
+        if not @sort_key
+            @sort_key = 'description'
+        end
+        Event.where("description LIKE ?", "%#{query}%").order(sort_key)
     end
 
     def self.create info

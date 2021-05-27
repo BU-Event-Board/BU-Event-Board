@@ -12,11 +12,7 @@ class EventsController < ApplicationController
     render_or_redirect
     @sort_key = sort_key
     @query_key = query_key
-    if @query_key
-      @events = Event.search_description(@query_key)
-    elsif @sort_key
-      @events = Event.sort_events(@sort_key)
-    end
+    @events = Event.search_description(@query_key, @sort_key)
   end
 
   # GET /events/1
