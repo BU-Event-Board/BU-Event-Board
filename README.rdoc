@@ -16,3 +16,10 @@ After tirelessly fiddling with Rails controllers, models, and other fancy gems, 
   - Details page for individual events
 - Automated refresh of events from customizable sources
   - Twitter API access to user/organization Tweets
+
+=== Setup
+1. Install Ruby
+2. Clone this repository and open a terminal in the source directory
+3. Run `bundle install --without production`
+4. Run `rails server -b 0.0.0.0`
+5. Enjoy!
