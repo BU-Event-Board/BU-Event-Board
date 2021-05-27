@@ -1,7 +1,8 @@
 %h1 Listing events
-%p1
-  //= link_to "Sort Date", events_path(:sort => :date)
-  = link_to "Sort Desc", events_path(:sort => :description)
+%p1 
+  = "Sort By: "
+  = link_to "Date", events_path(:sort => :date)
+  = link_to "Description", events_path(:sort => :description)
   %form{ :action => events_path, :method => "get" }
     %input{:placeholder => @query_key, :required => "", :type => "text", :name => "query"}
       %button{:type => "submit"} Search
