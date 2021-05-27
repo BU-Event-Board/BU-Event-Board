@@ -69,6 +69,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'postgresql'
 end
 
 gem 'omniauth-rails_csrf_protection'  # protects against recently discovered vulnerability
