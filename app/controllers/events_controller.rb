@@ -38,8 +38,8 @@ class EventsController < ApplicationController
      end
       
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = "dnVoYfol2rDJn6JKx7O9z8jfy" 
-      config.consumer_secret     = "KnrWrRThpdC6VzEDY7UerusXLTf7rxqVSLHcvi7cu4cYkq8RJQ"
+      config.consumer_key        = ENV["TWITTER_CLIENT_ID"] 
+      config.consumer_secret     = ENV["TWITTER_CLIENT_SECRET"]
     end
 
     @Tweets = client.user_timeline('binghamtonu', count: 3200)
