@@ -56,7 +56,7 @@ class EventsController < ApplicationController
       x.save
     end
       
-    redirect_to index
+    redirect_to events_url
     
   end
 
