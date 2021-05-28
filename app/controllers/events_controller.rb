@@ -56,11 +56,8 @@ class EventsController < ApplicationController
       x.save
     end
       
-    if @eventslist[0].save
-      redirect_to @eventslist[0], notice: 'Event was successfully created.'
-    else
-      render :new
-    end
+    redirect_to index
+    
   end
 
   # PATCH/PUT /events/1
