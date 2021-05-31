@@ -51,7 +51,7 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3.0'
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false, group: :test
   gem 'database_cleaner', '1.4.1'
   gem 'capybara', '2.4.4'
   gem 'launchy'
@@ -76,3 +76,5 @@ gem 'omniauth-rails_csrf_protection'  # protects against recently discovered vul
 gem 'omniauth'                        # flexible, multi-provider authentication library
 gem 'omniauth-github'                 # omniauth strategy for provider github
 gem 'figaro'                          # keeps our secrets safe
+
+gem 'simplecov'

@@ -1,32 +1,32 @@
 class SessionsController < ApplicationController
   skip_before_action :keep_out_unless_logged_in, only: [:create, :clear, :debug]  
     
-  def clear
-    session.clear
-    redirect_to landing_page_index_path
-    #redirect_to #"/auth/github" #welcome_to_landing_path
-  end
+#  def clear
+#    session.clear
+#    redirect_to landing_page_index_path
+#    #redirect_to #"/auth/github" #welcome_to_landing_path
+#  end
 
 
-  def debug
-    auth_hash = request.env['omniauth.auth']
-    puts '\n raw auth_hash\n'
-    p auth_hash
-    puts '\n\nauth_hash by key\n'
-    auth_hash.each_pair do |key, value|
-      puts "\nKEY: #{key}"
-      if value.kind_of?(Hash)
-        nested_hash(value, '')
-      else
-        puts "Value: #{value}"
-      end
-        unless auth_hash.info.email.include? "binghamton.edu"
-          redirect_to failure
-       end
-    end
+ # def debug
+#    auth_hash = request.env['omniauth.auth']
+#    puts '\n raw auth_hash\n'
+#    p auth_hash
+ #   puts '\n\nauth_hash by key\n'
+#    auth_hash.each_pair do |key, value|
+#      puts "\nKEY: #{key}"
+#      if value.kind_of?(Hash)
+#        nested_hash(value, '')
+#     else
+#        puts "Value: #{value}"
+#      end
+#        unless auth_hash.info.email.include? "binghamton.edu"
+#          redirect_to failure
+#       end
+#    end
       
-    redirect_to landing_page_index_path
-  end
+#    redirect_to landing_page_index_path
+#  end
   
     
   def create
@@ -73,18 +73,18 @@ class SessionsController < ApplicationController
 
   private 
     
-  def nested_hash nh, indent
-    puts indent + "VALUE is a nested hash"
-    indent += '  '
-    nh.each_pair do |key, value|
-      puts indent + "KEY: #{key}"
-      if value.kind_of?(Hash)
-        nested_hash(value, indent)
-      else
-        puts indent + "VALUE:  #{value}"
-      end     
-    end
-  end
+#  def nested_hash nh, indent
+#    puts indent + "VALUE is a nested hash"
+#    indent += '  '
+#    nh.each_pair do |key, value|
+#      puts indent + "KEY: #{key}"
+#      if value.kind_of?(Hash)
+#        nested_hash(value, indent)
+#      else
+ #       puts indent + "VALUE:  #{value}"
+#      end     
+#    end
+#  end
     
     
   def auth_hash
